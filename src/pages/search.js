@@ -46,7 +46,6 @@ export default function Search({ shelfs, setShelfs }) {
         (book) => book.id !== singleBook.id
       );
     }
-    let { shelf } = singleBook;
 
     setShelfs((prev) => {
       if (goToSection === "none") {
@@ -57,7 +56,6 @@ export default function Search({ shelfs, setShelfs }) {
         prev[currentSection] = newCurrentSection;
       }
       prev[goToSection].push(singleBook);
-      shelf = goToSection;
     });
 
     BookApi.update(singleBook, goToSection);
